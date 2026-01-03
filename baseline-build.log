@@ -1,0 +1,322 @@
+Configuration file: /Users/kyleskrinak/Documents/MM-CSS-Fix/_config.yml
+To use retry middleware with Faraday v2.0+, install `faraday-retry` gem
+            Source: /Users/kyleskrinak/Documents/MM-CSS-Fix
+       Destination: /Users/kyleskrinak/Documents/MM-CSS-Fix/_site
+ Incremental build: disabled. Enable with --incremental
+      Generating... 
+       Jekyll Feed: Generating feed for posts
+DEPRECATION WARNING [import]: Sass @import rules are deprecated and will be removed in Dart Sass 3.0.0.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+  ╷
+3 │ @import "minimal-mistakes/skins/default"; // skin
+  │         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  ╵
+    /Users/kyleskrinak/Documents/MM-CSS-Fix/assets/css/main.scss 3:9  root stylesheet
+DEPRECATION WARNING [import]: Sass @import rules are deprecated and will be removed in Dart Sass 3.0.0.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+  ╷
+4 │ @import "minimal-mistakes"; // main partials
+  │         ^^^^^^^^^^^^^^^^^^
+  ╵
+    /Users/kyleskrinak/Documents/MM-CSS-Fix/assets/css/main.scss 4:9  root stylesheet
+DEPRECATION WARNING [import]: Sass @import rules are deprecated and will be removed in Dart Sass 3.0.0.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+  ╷
+2 │ @import "minimal-mistakes/copyright";
+  │         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  ╵
+    minimal-mistakes.scss 2:9                                         @import
+    /Users/kyleskrinak/Documents/MM-CSS-Fix/assets/css/main.scss 4:9  root stylesheet
+DEPRECATION WARNING [import]: Sass @import rules are deprecated and will be removed in Dart Sass 3.0.0.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+  ╷
+5 │ @import "minimal-mistakes/variables";
+  │         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  ╵
+    minimal-mistakes.scss 5:9                                         @import
+    /Users/kyleskrinak/Documents/MM-CSS-Fix/assets/css/main.scss 4:9  root stylesheet
+DEPRECATION WARNING [import]: Sass @import rules are deprecated and will be removed in Dart Sass 3.0.0.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+  ╷
+8 │ @import "minimal-mistakes/vendor/breakpoint/breakpoint";
+  │         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  ╵
+    minimal-mistakes.scss 8:9                                         @import
+    /Users/kyleskrinak/Documents/MM-CSS-Fix/assets/css/main.scss 4:9  root stylesheet
+DEPRECATION WARNING [global-builtin]: Global built-in functions are deprecated and will be removed in Dart Sass 3.0.0.
+Use color.mix instead.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+   ╷
+95 │ $dark-gray: mix(#000, $gray, 50%) !default;
+   │             ^^^^^^^^^^^^^^^^^^^^^
+   ╵
+    /Users/kyleskrinak/Documents/MM-CSS-Fix/_sass/minimal-mistakes/_variables.scss 95:13  @import
+    minimal-mistakes.scss 5:9                                                             @import
+    /Users/kyleskrinak/Documents/MM-CSS-Fix/assets/css/main.scss 4:9                      root stylesheet
+DEPRECATION WARNING [global-builtin]: Global built-in functions are deprecated and will be removed in Dart Sass 3.0.0.
+Use color.mix instead.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+   ╷
+96 │ $darker-gray: mix(#000, $gray, 60%) !default;
+   │               ^^^^^^^^^^^^^^^^^^^^^
+   ╵
+    /Users/kyleskrinak/Documents/MM-CSS-Fix/_sass/minimal-mistakes/_variables.scss 96:15  @import
+    minimal-mistakes.scss 5:9                                                             @import
+    /Users/kyleskrinak/Documents/MM-CSS-Fix/assets/css/main.scss 4:9                      root stylesheet
+DEPRECATION WARNING [global-builtin]: Global built-in functions are deprecated and will be removed in Dart Sass 3.0.0.
+Use color.mix instead.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+   ╷
+97 │ $light-gray: mix(#fff, $gray, 50%) !default;
+   │              ^^^^^^^^^^^^^^^^^^^^^
+   ╵
+    /Users/kyleskrinak/Documents/MM-CSS-Fix/_sass/minimal-mistakes/_variables.scss 97:14  @import
+    minimal-mistakes.scss 5:9                                                             @import
+    /Users/kyleskrinak/Documents/MM-CSS-Fix/assets/css/main.scss 4:9                      root stylesheet
+DEPRECATION WARNING [global-builtin]: Global built-in functions are deprecated and will be removed in Dart Sass 3.0.0.
+Use color.mix instead.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+   ╷
+98 │ $lighter-gray: mix(#fff, $gray, 90%) !default;
+   │                ^^^^^^^^^^^^^^^^^^^^^
+   ╵
+    /Users/kyleskrinak/Documents/MM-CSS-Fix/_sass/minimal-mistakes/_variables.scss 98:16  @import
+    minimal-mistakes.scss 5:9                                                             @import
+    /Users/kyleskrinak/Documents/MM-CSS-Fix/assets/css/main.scss 4:9                      root stylesheet
+DEPRECATION WARNING [global-builtin]: Global built-in functions are deprecated and will be removed in Dart Sass 3.0.0.
+Use color.mix instead.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+    ╷
+104 │ $muted-text-color: mix(#fff, $text-color, 20%) !default;
+    │                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ╵
+    /Users/kyleskrinak/Documents/MM-CSS-Fix/_sass/minimal-mistakes/_variables.scss 104:20  @import
+    minimal-mistakes.scss 5:9                                                              @import
+    /Users/kyleskrinak/Documents/MM-CSS-Fix/assets/css/main.scss 4:9                       root stylesheet
+DEPRECATION WARNING [if-function]: The Sass if() syntax is deprecated in favor of the modern CSS syntax.
+
+Suggestion: if(sass(list-separator($query) == "comma"): true; else: false)
+
+More info: https://sass-lang.com/d/if-function
+
+   ╷
+44 │     $or-list: if(list-separator($query) == 'comma', true, false);
+   │               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   ╵
+    /Users/kyleskrinak/Documents/MM-CSS-Fix/_sass/minimal-mistakes/vendor/breakpoint/_parsers.scss 44:15    @import
+    /Users/kyleskrinak/Documents/MM-CSS-Fix/_sass/minimal-mistakes/vendor/breakpoint/_breakpoint.scss 29:9  @import
+    minimal-mistakes.scss 8:9                                                                               @import
+    /Users/kyleskrinak/Documents/MM-CSS-Fix/assets/css/main.scss 4:9                                        root stylesheet
+DEPRECATION WARNING [if-function]: The Sass if() syntax is deprecated in favor of the modern CSS syntax.
+
+Suggestion: if(sass($i == 1): ""; else: ", ")
+
+More info: https://sass-lang.com/d/if-function
+
+   ╷
+72 │           $query-string: $query-string + if($i == 1, '', ', ') + breakpoint-parse(nth($query, $i));
+   │                                          ^^^^^^^^^^^^^^^^^^^^^
+   ╵
+    /Users/kyleskrinak/Documents/MM-CSS-Fix/_sass/minimal-mistakes/vendor/breakpoint/_parsers.scss 72:42    @import
+    /Users/kyleskrinak/Documents/MM-CSS-Fix/_sass/minimal-mistakes/vendor/breakpoint/_breakpoint.scss 29:9  @import
+    minimal-mistakes.scss 8:9                                                                               @import
+    /Users/kyleskrinak/Documents/MM-CSS-Fix/assets/css/main.scss 4:9                                        root stylesheet
+DEPRECATION WARNING [slash-div]: Using / for division is deprecated and will be removed in Dart Sass 2.0.0.
+
+Recommendation: math.div(9, 16)
+
+More info and automated migrator: https://sass-lang.com/d/slash-div
+
+   ╷
+31 │ $mfp-iframe-ratio:                    9/16;                       // Ratio of iframe (9/16 = widescreen, 3/4 = standard, etc.)
+   │                                       ^^^^
+   ╵
+    /Users/kyleskrinak/Documents/MM-CSS-Fix/_sass/minimal-mistakes/vendor/magnific-popup/_settings.scss 31:39      @import
+    /Users/kyleskrinak/Documents/MM-CSS-Fix/_sass/minimal-mistakes/vendor/magnific-popup/_magnific-popup.scss 3:9  @import
+    minimal-mistakes.scss 10:9                                                                                     @import
+    /Users/kyleskrinak/Documents/MM-CSS-Fix/assets/css/main.scss 4:9                                               root stylesheet
+DEPRECATION WARNING [if-function]: The Sass if() syntax is deprecated in favor of the modern CSS syntax.
+
+Suggestion: if(sass(unitless($first)): "fluid"; else: "static")
+
+More info: https://sass-lang.com/d/if-function
+
+   ╷
+67 │     @return if(unitless($first), 'fluid', 'static');
+   │             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   ╵
+    /Users/kyleskrinak/Documents/MM-CSS-Fix/_sass/minimal-mistakes/vendor/susy/susy/_utilities.scss 67:13  @import
+    /Users/kyleskrinak/Documents/MM-CSS-Fix/_sass/minimal-mistakes/vendor/susy/_susy-prefix.scss 6:9       @import
+    /Users/kyleskrinak/Documents/MM-CSS-Fix/_sass/minimal-mistakes/vendor/susy/_susy.scss 4:9              @import
+    minimal-mistakes.scss 11:9                                                                             @import
+    /Users/kyleskrinak/Documents/MM-CSS-Fix/assets/css/main.scss 4:9                                       root stylesheet
+DEPRECATION WARNING [if-function]: The Sass if() syntax is deprecated in favor of the modern CSS syntax.
+
+Suggestion: if(sass(unitless($first)): "fluid"; else: "static")
+
+More info: https://sass-lang.com/d/if-function
+
+   ╷
+82 │   @return if(unitless($first), 'fluid', 'static');
+   │           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   ╵
+    /Users/kyleskrinak/Documents/MM-CSS-Fix/_sass/minimal-mistakes/vendor/susy/susy/_utilities.scss 82:11  @import
+    /Users/kyleskrinak/Documents/MM-CSS-Fix/_sass/minimal-mistakes/vendor/susy/_susy-prefix.scss 6:9       @import
+    /Users/kyleskrinak/Documents/MM-CSS-Fix/_sass/minimal-mistakes/vendor/susy/_susy.scss 4:9              @import
+    minimal-mistakes.scss 11:9                                                                             @import
+    /Users/kyleskrinak/Documents/MM-CSS-Fix/assets/css/main.scss 4:9                                       root stylesheet
+DEPRECATION WARNING [if-function]: The Sass if() syntax is deprecated in favor of the modern CSS syntax.
+
+Suggestion: if(sass($match): $try; else: $unit)
+
+More info: https://sass-lang.com/d/if-function
+
+    ╷
+121 │       $unit: if($match, $try, $unit);
+    │              ^^^^^^^^^^^^^^^^^^^^^^^
+    ╵
+    /Users/kyleskrinak/Documents/MM-CSS-Fix/_sass/minimal-mistakes/vendor/susy/susy/_utilities.scss 121:14  @import
+    /Users/kyleskrinak/Documents/MM-CSS-Fix/_sass/minimal-mistakes/vendor/susy/_susy-prefix.scss 6:9        @import
+    /Users/kyleskrinak/Documents/MM-CSS-Fix/_sass/minimal-mistakes/vendor/susy/_susy.scss 4:9               @import
+    minimal-mistakes.scss 11:9                                                                              @import
+    /Users/kyleskrinak/Documents/MM-CSS-Fix/assets/css/main.scss 4:9                                        root stylesheet
+DEPRECATION WARNING [slash-div]: Using / for division outside of calc() is deprecated and will be removed in Dart Sass 2.0.0.
+
+Recommendation: math.div($value, 16px) or calc($value / 16px)
+
+More info and automated migrator: https://sass-lang.com/d/slash-div
+
+   ╷
+28 │     @return $value / 16px * 1em;
+   │             ^^^^^^^^^^^^^
+   ╵
+    /Users/kyleskrinak/Documents/MM-CSS-Fix/_sass/minimal-mistakes/vendor/breakpoint/_helpers.scss 28:13                base-conversion()
+    /Users/kyleskrinak/Documents/MM-CSS-Fix/_sass/minimal-mistakes/vendor/breakpoint/_helpers.scss 20:13                breakpoint-to-base-em()
+    /Users/kyleskrinak/Documents/MM-CSS-Fix/_sass/minimal-mistakes/vendor/breakpoint/parsers/single/_default.scss 8:29  breakpoint-parse-default()
+    /Users/kyleskrinak/Documents/MM-CSS-Fix/_sass/minimal-mistakes/vendor/breakpoint/parsers/_single.scss 22:14         breakpoint-parse-single()
+    /Users/kyleskrinak/Documents/MM-CSS-Fix/_sass/minimal-mistakes/vendor/breakpoint/_parsers.scss 153:18               breakpoint-parse()
+    /Users/kyleskrinak/Documents/MM-CSS-Fix/_sass/minimal-mistakes/vendor/breakpoint/_parsers.scss 48:22                breakpoint()
+    /Users/kyleskrinak/Documents/MM-CSS-Fix/_sass/minimal-mistakes/vendor/breakpoint/_breakpoint.scss 46:16             breakpoint()
+    /Users/kyleskrinak/Documents/MM-CSS-Fix/_sass/minimal-mistakes/_reset.scss 13:3                                     @import
+    minimal-mistakes.scss 15:9                                                                                          @import
+    /Users/kyleskrinak/Documents/MM-CSS-Fix/assets/css/main.scss 4:9                                                    root stylesheet
+DEPRECATION WARNING [slash-div]: Using / for division outside of calc() is deprecated and will be removed in Dart Sass 2.0.0.
+
+Recommendation: math.div(5px, 2) or calc(5px / 2)
+
+More info and automated migrator: https://sass-lang.com/d/slash-div
+
+   ╷
+28 │     margin-bottom: (5px / 2);
+   │                     ^^^^^^^
+   ╵
+    /Users/kyleskrinak/Documents/MM-CSS-Fix/_sass/minimal-mistakes/_forms.scss 28:21  @import
+    minimal-mistakes.scss 17:9                                                        @import
+    /Users/kyleskrinak/Documents/MM-CSS-Fix/assets/css/main.scss 4:9                  root stylesheet
+DEPRECATION WARNING [color-functions]: red() is deprecated. Suggestion:
+
+color.channel($color, "red", $space: rgb)
+
+More info: https://sass-lang.com/d/color-functions
+
+   ╷
+64 │   $red: red($color);
+   │         ^^^^^^^^^^^
+   ╵
+    /Users/kyleskrinak/Documents/MM-CSS-Fix/_sass/minimal-mistakes/_mixins.scss 64:9   yiq-is-light()
+    /Users/kyleskrinak/Documents/MM-CSS-Fix/_sass/minimal-mistakes/_mixins.scss 81:14  yiq-contrast-color()
+    /Users/kyleskrinak/Documents/MM-CSS-Fix/_sass/minimal-mistakes/_mixins.scss 91:10  yiq-contrasted()
+    /Users/kyleskrinak/Documents/MM-CSS-Fix/_sass/minimal-mistakes/_buttons.scss 50:7  @import
+    minimal-mistakes.scss 22:9                                                         @import
+    /Users/kyleskrinak/Documents/MM-CSS-Fix/assets/css/main.scss 4:9                   root stylesheet
+DEPRECATION WARNING [color-functions]: green() is deprecated. Suggestion:
+
+color.channel($color, "green", $space: rgb)
+
+More info: https://sass-lang.com/d/color-functions
+
+   ╷
+65 │   $green: green($color);
+   │           ^^^^^^^^^^^^^
+   ╵
+    /Users/kyleskrinak/Documents/MM-CSS-Fix/_sass/minimal-mistakes/_mixins.scss 65:11  yiq-is-light()
+    /Users/kyleskrinak/Documents/MM-CSS-Fix/_sass/minimal-mistakes/_mixins.scss 81:14  yiq-contrast-color()
+    /Users/kyleskrinak/Documents/MM-CSS-Fix/_sass/minimal-mistakes/_mixins.scss 91:10  yiq-contrasted()
+    /Users/kyleskrinak/Documents/MM-CSS-Fix/_sass/minimal-mistakes/_buttons.scss 50:7  @import
+    minimal-mistakes.scss 22:9                                                         @import
+    /Users/kyleskrinak/Documents/MM-CSS-Fix/assets/css/main.scss 4:9                   root stylesheet
+DEPRECATION WARNING [color-functions]: blue() is deprecated. Suggestion:
+
+color.channel($color, "blue", $space: rgb)
+
+More info: https://sass-lang.com/d/color-functions
+
+   ╷
+66 │   $blue: blue($color);
+   │          ^^^^^^^^^^^^
+   ╵
+    /Users/kyleskrinak/Documents/MM-CSS-Fix/_sass/minimal-mistakes/_mixins.scss 66:10  yiq-is-light()
+    /Users/kyleskrinak/Documents/MM-CSS-Fix/_sass/minimal-mistakes/_mixins.scss 81:14  yiq-contrast-color()
+    /Users/kyleskrinak/Documents/MM-CSS-Fix/_sass/minimal-mistakes/_mixins.scss 91:10  yiq-contrasted()
+    /Users/kyleskrinak/Documents/MM-CSS-Fix/_sass/minimal-mistakes/_buttons.scss 50:7  @import
+    minimal-mistakes.scss 22:9                                                         @import
+    /Users/kyleskrinak/Documents/MM-CSS-Fix/assets/css/main.scss 4:9                   root stylesheet
+DEPRECATION WARNING [slash-div]: Using / for division outside of calc() is deprecated and will be removed in Dart Sass 2.0.0.
+
+Recommendation: math.div(($red * 299) + ($green * 587) + ($blue * 114), 1000) or calc((($red * 299) + ($green * 587) + ($blue * 114)) / 1000)
+
+More info and automated migrator: https://sass-lang.com/d/slash-div
+
+   ╷
+68 │   $yiq: (($red*299)+($green*587)+($blue*114))/1000;
+   │         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   ╵
+    /Users/kyleskrinak/Documents/MM-CSS-Fix/_sass/minimal-mistakes/_mixins.scss 68:9   yiq-is-light()
+    /Users/kyleskrinak/Documents/MM-CSS-Fix/_sass/minimal-mistakes/_mixins.scss 81:14  yiq-contrast-color()
+    /Users/kyleskrinak/Documents/MM-CSS-Fix/_sass/minimal-mistakes/_mixins.scss 91:10  yiq-contrasted()
+    /Users/kyleskrinak/Documents/MM-CSS-Fix/_sass/minimal-mistakes/_buttons.scss 50:7  @import
+    minimal-mistakes.scss 22:9                                                         @import
+    /Users/kyleskrinak/Documents/MM-CSS-Fix/assets/css/main.scss 4:9                   root stylesheet
+DEPRECATION WARNING [slash-div]: Using / for division outside of calc() is deprecated and will be removed in Dart Sass 2.0.0.
+
+Recommendation: math.div($span-width, $container) or calc($span-width / $container)
+
+More info and automated migrator: https://sass-lang.com/d/slash-div
+
+   ╷
+93 │     @return percentage($span-width / $container);
+   │                        ^^^^^^^^^^^^^^^^^^^^^^^^
+   ╵
+    /Users/kyleskrinak/Documents/MM-CSS-Fix/_sass/minimal-mistakes/vendor/susy/susy/_su-math.scss 93:24          su-span()
+    /Users/kyleskrinak/Documents/MM-CSS-Fix/_sass/minimal-mistakes/vendor/susy/susy/_syntax-helpers.scss 190:11  su-call()
+    /Users/kyleskrinak/Documents/MM-CSS-Fix/_sass/minimal-mistakes/vendor/susy/susy/_api.scss 146:13             susy-span()
+    /Users/kyleskrinak/Documents/MM-CSS-Fix/_sass/minimal-mistakes/vendor/susy/susy/_unprefix.scss 19:11         span()
+    /Users/kyleskrinak/Documents/MM-CSS-Fix/_sass/minimal-mistakes/_utilities.scss 177:29                        @content
+    /Users/kyleskrinak/Documents/MM-CSS-Fix/_sass/minimal-mistakes/vendor/breakpoint/_breakpoint.scss 66:7       breakpoint()
+    /Users/kyleskrinak/Documents/MM-CSS-Fix/_sass/minimal-mistakes/_utilities.scss 176:3                         @import
+    minimal-mistakes.scss 31:9                                                                                   @import
+    /Users/kyleskrinak/Documents/MM-CSS-Fix/assets/css/main.scss 4:9                                             root stylesheet
+WARNING: 230 repetitive deprecation warnings omitted.
+Run in verbose mode to see all warnings.
+                    done in 0.233 seconds.
+ Auto-regeneration: disabled. Use --watch to enable.
