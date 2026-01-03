@@ -101,7 +101,7 @@ Infrastructure:
 | 1 | Vendor audit & breaking changes | ✅ Complete | ~230 → ~222 | VENDOR_AUDIT.md, BREAKING_CHANGES.md completed |
 | 2.1 | Remove Magnific Popup | ✅ Complete | ~222 → ~213 | Vendor deleted, JS removed, build verified |
 | 2.2 | Replace Breakpoint with @media | ✅ Complete | ~213 → **141** | All 28 calls replaced, Breakpoint import removed |
-| 2.3 | Audit Susy usage | ⏳ Ready | – | 9 span() calls identified, Phase 3 will replace |
+| 2.3 | Add math module & fix slash-div | ✅ Complete | **141** (no change) | All MM-specific slash-div fixed, remaining are Susy vendor |
 | 3 | Replace Susy with CSS Grid | 🔄 Next | – | Grid-based layout replacement, 1-2 phase blocks |
 | 4 | Migrate to @use modules | ⏳ Planned | – | After vendor code removed |
 | 5 | JavaScript modernization | ⏳ Planned | – | jQuery → vanilla ES6+ |
@@ -112,9 +112,14 @@ Infrastructure:
 - Started: ~230 warnings (upstream MM 4.x with all vendors)
 - After Phase 2.1 (Magnific Popup): ~213 warnings (lost ~8)
 - After Phase 2.2 (Breakpoint): **141 warnings** (lost ~81!)
+- After Phase 2.3 (Math module): **141 warnings** (all remaining = Susy vendor code only)
 - Target: <5 warnings (only minor MM code, no vendor)
 
-**Key Discovery:** Breakpoint removal provided massive deprecation relief (-81 warnings) beyond expected Susy/vendor issues. Dart Sass handles native @media queries without any warnings.
+**Key Discoveries:**
+1. Breakpoint removal provided massive deprecation relief (-81 warnings) beyond expected Susy/vendor issues
+2. Dart Sass handles native @media queries without any warnings
+3. All MM-specific deprecation warnings now eliminated - only Susy vendor code remains
+4. Susy slash-div warnings are inherent to Susy 3's code (can only be fixed by replacing Susy entirely in Phase 3)
 
 ---
 
@@ -163,26 +168,61 @@ Infrastructure:
 - ✅ Build succeeds, deprecation warnings: ~222 → **141**
 - Result: Cleaner, more readable media queries, massive deprecation warning reduction (-81!)
 
-#### 2.3: Audit jQuery & Math Module ⏳
-- Audit jQuery usage patterns
-- Implement `@use "sass:math"` for slash-division
-- Update remaining deprecation warnings from slash-div operations
+#### 2.3: Add Dart Sass Math Module ✅
+- ✅ Added `@use "sass:math"` imports to _mixins.scss and _forms.scss
+- ✅ Replaced all 4 MM-specific slash-division operations with math.div():
+  - `em()` function: `($target / $context)` → `math.div($target, $context)`
+  - `yiq-is-light()`: `((...)/1000)` → `math.div((...), 1000)`
+  - `_forms.scss`: `(5px / 2)` → `math.div(5px, 2)`
+- ✅ Build succeeds with no MM-specific deprecation warnings
+- ✅ Remaining 141 warnings all from Susy vendor code (will be eliminated in Phase 3)
 
 **Learning Outcomes:**
 - How to systematically remove features without breaking layouts
 - Dart Sass modernization paths (math module, native media queries)
 - Deprecation warning categories and their sources
+- Vendor code is often the primary source of technical debt
 
 **Success Criteria Met:**
 - ✅ No Magnific Popup code remains
 - ✅ No Breakpoint code remains
+- ✅ No MM-specific slash-division operations remain
 - ✅ Build succeeds for all configurations
 - ✅ All 9 skins still build correctly
 - ✅ Deprecation warnings reduced by 89 (from 230 to 141)
 
 ---
 
-### Phase 3: Sass Architecture Modernization
+### Phase 3: CSS Grid Replacement *(Ready)*
+**Deliverable:** Modern CSS Grid-based layouts, no Susy dependency
+
+**Tasks:**
+1. Replace Susy grid mixin calls with CSS Grid
+2. Replace Breakpoint mixin calls with native @media
+3. Update layout variables
+   - Keep breakpoint variables ($small, $medium, $large, $x-large)
+   - Replace Susy configuration with CSS custom properties
+   - Test responsive behavior on all breakpoints
+
+4. Test all layouts
+   - Archive grid layout responsive
+   - Sidebar layouts correct
+   - All 9 skins render properly
+
+**Learning Focus:**
+- CSS Grid capabilities and syntax
+- Modern responsive design patterns
+- Migration from abstraction layers to native CSS
+
+**Success Criteria:**
+- ✅ No Susy code remains
+- ✅ All layouts responsive on mobile/tablet/desktop
+- ✅ CSS inspection shows CSS Grid (not Susy math)
+- ✅ All 9 skins responsive and correct
+
+---
+
+### Phase 4: Sass Architecture Modernization *(Planned)*
 **Deliverable:** @use modules, proper scoping, no deprecated patterns
 
 **Tasks:**
@@ -204,7 +244,7 @@ Infrastructure:
 
 ---
 
-### Phase 4: Layout Modernization
+### Phase 5: Layout Modernization
 **Deliverable:** CSS Grid layouts, native media queries, no vendor libraries
 
 **Tasks:**
@@ -267,7 +307,7 @@ Infrastructure:
 
 ---
 
-### Phase 5: JavaScript Modernization *(Optional)*
+### Phase 6: JavaScript Modernization *(Optional)*
 **Deliverable:** Vanilla ES6+ JavaScript, no jQuery, optional lightbox alternative
 
 **Tasks:**
@@ -298,7 +338,7 @@ Infrastructure:
 
 ---
 
-### Phase 6: Testing & Validation
+### Phase 7: Testing & Validation
 **Deliverable:** Automated testing, regression detection, CI/CD pipeline
 
 **Tasks:**
