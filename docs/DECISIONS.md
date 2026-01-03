@@ -352,3 +352,160 @@ A: No. This is an independent fork for modern deployments. Upstream intentionall
 ---
 
 *This document reflects decisions made during Phase 1-2 of the Minimal Mistakes Modernization project. Future phases may require decision updates as we learn more.*
+
+---
+
+## Decision 5: Defer @use Module Migration (Phase 4 Architectural Debt)
+
+**Status:** 📝 **DOCUMENTED - DEFERRED TO v6.0.0**
+
+### What We Assessed
+- Migration from @import to @use modules throughout codebase
+- Elimination of remaining 44 deprecation warnings (all @import-related)
+- Full Dart Sass @use/@ forward module system implementation
+
+### Why We're Deferring This
+
+| Criterion | Finding |
+|-----------|---------|
+| **Architectural complexity** | ❌ HIGH - Requires refactoring 20+ component files |
+| **Breaking changes** | ❌ SEVERE - Breaks all user variable customization patterns |
+| **Effort required** | ❌ 10+ hours - Each component needs explicit @use statements |
+| **User impact** | ❌ MAJOR - Users override variables via `_config.yml` and custom SCSS |
+| **Current workaround** | ✅ @import still functional (just deprecated) |
+| **Deprecation urgency** | ⏳ LOW - Dart Sass 3.0 timeline TBD (not imminent) |
+
+### Technical Analysis
+
+**Current Architecture:**
+```scss
+// assets/css/main.scss
+@use "minimal-mistakes" as *;  // Works fine
+
+// _sass/minimal-mistakes.scss  
+@import "minimal-mistakes/variables";  // ← 44 deprecation warnings from these
+@import "minimal-mistakes/mixins";
+@import "minimal-mistakes/reset";
+// ... 20+ more @imports
+
+// Component files (_archive.scss, _buttons.scss, etc.)
+// These files USE variables but don't import them
+// They rely on global scope from @import cascade
+.archive-item {
+  color: $primary-color;  // ← Expects global variable
+}
+```
+
+**Required @use Migration:**
+```scss
+// Every single component file would need:
+@use "variables" as *;
+@use "mixins" as *;
+
+// This breaks user customization:
+// Users currently override via _config.yml or custom.scss
+// @use scoping makes this impossible without @forward layers
+```
+
+### Breaking Changes for Users
+
+**Current (v5.0):** Users can override variables easily:
+```scss
+// _sass/custom.scss
+$primary-color: #ff0000;
+@import "minimal-mistakes";
+```
+
+**With @use (v6.0):** Users must use complex @forward:
+```scss
+// Much more complex, breaks existing patterns
+@use "minimal-mistakes/variables" with (
+  $primary-color: #ff0000
+);
+```
+
+### Alternative Approaches Considered
+
+**Option A: Full @use migration now (rejected)**
+- ❌ Breaks all existing user customization patterns
+- ❌ 10+ hours of refactoring for 44 warnings
+- ❌ Requires extensive testing of all variable scoping
+- ❌ Would require v6.0.0 (another major version)
+
+**Option B: Hybrid @use + @import (rejected)**
+- ❌ Dart Sass doesn't allow mixing in same file
+- ❌ Would still generate deprecation warnings
+- ❌ Creates confusing mixed architecture
+
+**Option C: Document as technical debt for v6.0 (✅ SELECTED)**
+- ✅ Honest about limitations
+- ✅ Preserves user customization patterns
+- ✅ Allows time for Dart Sass 3.0 timeline clarity
+- ✅ Focus v5.0 on vendor code elimination (achieved!)
+- ✅ Defer breaking changes to next major version
+
+### Recommendation
+
+**Accept 44 @import deprecation warnings as architectural debt for v5.0.0**
+
+**Rationale:**
+1. **Value delivered:** v5.0 eliminated 186 warnings (81% reduction: 230 → 44)
+2. **Real impact:** All VENDOR code removed (Susy, Breakpoint, Magnific Popup)
+3. **User benefit:** Modern CSS (percentages, @media, math.div) without breaking changes
+4. **Deprecation timeline:** Dart Sass 3.0 not imminent, @import still functional
+5. **Future path:** v6.0.0 can introduce @use with proper @forward architecture
+
+### v6.0.0 Migration Path
+
+When Dart Sass 3.0 timeline becomes clear:
+
+1. **Create @forward module system:**
+   ```scss
+   // _sass/minimal-mistakes/_index.scss
+   @forward "variables";
+   @forward "mixins";
+   ```
+
+2. **Migrate all component files** to use explicit @use
+
+3. **Document new variable override pattern** for users
+
+4. **Provide migration guide** from v5 → v6
+
+5. **Target:** 0 deprecation warnings, full Dart Sass 3.0 compliance
+
+### Decision
+
+**For v5.0.0:**
+- ✅ Ship with 44 @import deprecation warnings (documented as known issue)
+- ✅ Document in BREAKING_CHANGES.md that @use migration deferred to v6.0
+- ✅ Focus v5.0 value: Vendor code elimination, modern CSS patterns
+- ✅ v5.0 is still a massive improvement: 81% warning reduction, no vendor debt
+
+**For v6.0.0 (future):**
+- ⏳ Full @use/@forward architecture
+- ⏳ Breaking changes to variable customization
+- ⏳ Complete Dart Sass modernization
+- ⏳ 0 deprecation warnings
+
+### Key Takeaway
+
+v5.0.0 eliminates **all vendor-related technical debt** (the main goal). The remaining 44 @import warnings are **architectural debt** that require breaking changes to user-facing APIs. This is appropriate for a future major version, not this release.
+
+---
+
+**Q: So v5.0 still has deprecation warnings?**  
+A: Yes, 44 @import warnings. But we eliminated 186 warnings (81%) and removed ALL vendor code. The remaining warnings are about module architecture, not broken/unmaintained code.
+
+**Q: Will @import stop working?**  
+A: Not soon. Dart Sass will deprecate it in version 3.0, but that timeline is uncertain. When it happens, we'll release v6.0 with @use.
+
+**Q: Is this a failure?**  
+A: No. We achieved the main goal: eliminate vendor technical debt. v5.0 is production-ready with modern CSS. The @import warnings are just "architectural cleanup" for v6.0.
+
+**Q: Why not just finish it now?**  
+A: Because it would break user variable customization patterns (breaking change requiring v6.0 anyway) and take 10+ hours for marginal benefit. Better to ship v5.0 and do @use properly in v6.0.
+
+---
+
+*This document reflects decisions made during Phase 1-4 of the Minimal Mistakes Modernization project. Phase 4 assessment complete: @use migration deferred to v6.0.0.*

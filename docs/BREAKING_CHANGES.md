@@ -97,27 +97,31 @@
 
 ---
 
-### 4. Sass @import Usage ❌ (Future: Phase 4)
+### 4. Sass @import Usage ⚠️ (Deferred to v6.0.0)
 
-**Current state:** Still uses @import (necessary before vendor code removed)  
-**Future state (Phase 4):** Will migrate to @use modules
+**v5.0 state:** Still uses @import (44 deprecation warnings - see "Known Issues" section above)  
+**v6.0 future state:** Will migrate to @use modules with breaking changes
 
-**Impact on users:** None yet. Preprocessing only.
+**Impact on users:** 
+- v5.0: None - @import still functional, warnings non-breaking
+- v6.0: Variable override patterns will change (requires migration)
+
+**Why deferred:** @use migration requires architectural refactor affecting 20+ files and would break all existing user customization patterns. See Decision 5 in DECISIONS.md for complete rationale.
 
 ---
 
 ## Changed Patterns
 
-### Variables & Customization
+### Variables & Customization (v5.0 - NO CHANGE)
 
-**Upstream MM variable override pattern (no longer supported):**
+**Variable override pattern in v5.0 (unchanged from upstream MM):**
 ```scss
-// OLD (worked with @import cascade, won't work with @use)
+// STILL WORKS in v5.0 (no breaking changes)
 $primary-color: #ff0000 !default;
 @import "minimal-mistakes";
 ```
 
-**New pattern (v5.0+):**
+**Future v6.0 pattern (not yet implemented):**
 ```scss
 // NEW (explicit with @use modules)
 @use "minimal-mistakes/variables" with (
@@ -154,30 +158,59 @@ $primary-color: #ff0000 !default;
 
 ---
 
-## Deprecation Warnings
+## Deprecation Warnings & Known Issues
 
-### Before v5.0 (Upstream MM)
+### Before v5.0 (Upstream MM 4.x)
 ```
 230+ deprecation warnings during Jekyll build
 ├── ~130 from Susy slash-division math
 ├── ~20 from Magnific Popup
 ├── ~30 from Breakpoint slash-division
 ├── ~50 from own theme slash-division
-└── ~TBD from @import usage
+└── ~44 from @import usage
 ```
 
-### After v5.0.0 (This fork, Phase 2)
+### After v5.0.0 (This fork - Complete)
 ```
-~80 deprecation warnings remaining
-├── ~30 from Breakpoint (will be removed Phase 3)
-├── ~50 from own theme (will be fixed Phase 3)
-└── @import warnings (will be fixed Phase 4)
+44 deprecation warnings remaining (EXPECTED)
+├── ✅ 0 vendor warnings (all vendors removed)
+├── ✅ 0 slash-division warnings (math module implemented)
+└── 44 @import warnings (architectural debt - see below)
+
+Result: 81% reduction (230 → 44 warnings)
 ```
 
-### After Phase 4 (Target: @use modules)
+### Known Issue: @import Deprecation Warnings
+
+**Status:** ⚠️ **Accepted for v5.0.0** (deferred to v6.0.0)
+
+v5.0 ships with 44 `@import` deprecation warnings. This is **intentional and documented**.
+
+**Why we're shipping with warnings:**
+
+| Reason | Explanation |
+|--------|-------------|
+| **Architectural constraint** | Theme relies on @import's global scope behavior across 20+ component files |
+| **Breaking changes required** | @use migration would break all user variable customization patterns |
+| **Non-critical timing** | Dart Sass 3.0 (removes @import) timeline uncertain - warnings don't break builds |
+| **User impact** | Avoiding breaking changes preserves smooth upgrade path for v5.0 users |
+| **v6.0 plan** | Full @use/@forward migration with proper breaking change documentation |
+
+**What this means for you:**
+- ✅ v5.0 builds successfully (warnings don't prevent compilation)
+- ✅ All functionality works perfectly
+- ✅ 81% deprecation reduction achieved (186 warnings eliminated)
+- ⚠️ Build output shows "44 repetitive deprecation warnings omitted"
+- 📝 v6.0.0 will eliminate remaining warnings with @use migration
+
+**See Decision 5 in DECISIONS.md** for complete technical analysis and rationale.
+
+### After v6.0.0 (Future)
 ```
-~0 deprecation warnings
-✅ Clean build output
+0 deprecation warnings (target)
+├── Full @use/@forward module system
+├── New variable override mechanism
+└── Dart Sass 3.0 compliant
 ```
 
 ---

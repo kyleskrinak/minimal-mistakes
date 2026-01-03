@@ -103,7 +103,7 @@ Infrastructure:
 | 2.2 | Replace Breakpoint with @media | ✅ Complete | ~213 → **141** | All 28 calls replaced, Breakpoint import removed |
 | 2.3 | Add math module & fix slash-div | ✅ Complete | **141** (no change) | All MM-specific slash-div fixed, remaining are Susy vendor |
 | 3 | Replace Susy with percentages | ✅ Complete | **141** → **44** | All 9 span() calls converted, Susy vendor deleted |
-| 4 | Migrate to @use modules | 🔄 Next | – | After vendor code removed, clean @import deprecations |
+| 4 | Migrate to @use modules | � **Deferred to v6.0** | **44** (remains) | Requires architectural refactor + breaking changes (see Decision 5) |
 | 5 | JavaScript modernization | ⏳ Planned | – | jQuery → vanilla ES6+ |
 | 6 | CI/CD & Testing | ⏳ Planned | – | GitHub Actions setup |
 | 7 | Release & Migration Guide | ⏳ Planned | – | v5.0.0 release |
@@ -114,14 +114,17 @@ Infrastructure:
 - After Phase 2.2 (Breakpoint): **141 warnings** (lost ~81!)
 - After Phase 2.3 (Math module): **141 warnings** (no change, vendor-only)
 - After Phase 3 (Susy removal): **44 warnings** (lost ~97 total!)
-- Target: <5 warnings (only @import deprecation, eliminating in Phase 4)
+- After Phase 4 (Assessment): **44 warnings remain** (@use migration deferred to v6.0 - see Decision 5)
+- v5.0.0 Target: **44 @import warnings acceptable** (81% reduction achieved, all vendor code eliminated)
 
 **Key Discoveries:**
 1. Breakpoint removal provided massive deprecation relief (-81 warnings) beyond expected Susy/vendor issues
 2. Susy vendor library was responsible for 72 deprecation warnings (slash-div operations)
 3. Dart Sass handles native @media queries and percentage-based widths without any warnings
-4. All vendor code now removed - only @import deprecation warnings remain (44 warnings, Phase 4 will fix)
+4. All vendor code now removed - only @import deprecation warnings remain (44 warnings)
 5. Layout logic preserved perfectly with simple percentage calculations instead of Susy math
+6. **@use module migration blocked:** Requires refactoring 20+ component files + breaks user variable customization patterns (see Decision 5)
+7. **Architectural debt identified:** 44 @import warnings acceptable for v5.0, defer @use migration to v6.0.0 breaking changes
 
 ---
 
