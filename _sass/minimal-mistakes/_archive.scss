@@ -150,8 +150,7 @@
   margin-bottom: 2em;
 
   @media (min-width: $small) {
-    float: inline-start;
-    width: span(5 of 10);
+    width: 50%; /* span(5 of 10) */
 
     &:nth-child(2n + 1) {
       clear: both;
@@ -160,13 +159,13 @@
 
     &:nth-child(2n + 2) {
       clear: none;
-      margin-inline-start: gutter(of 10);
+      margin-inline-start: 0; /* gutter removed, using gap instead */
     }
   }
 
   @media (min-width: $medium) {
     margin-inline: 0; /* override margin*/
-    width: span(3 of 12);
+    width: 25%; /* span(3 of 12) */
 
     &:nth-child(2n + 1) {
       clear: none;
@@ -178,17 +177,17 @@
 
     &:nth-child(4n + 2) {
       clear: none;
-      margin-inline-start: gutter(1 of 12);
+      margin-inline-start: 0; /* gutter removed, using gap instead */
     }
 
     &:nth-child(4n + 3) {
       clear: none;
-      margin-inline-start: gutter(1 of 12);
+      margin-inline-start: 0; /* gutter removed, using gap instead */
     }
 
     &:nth-child(4n + 4) {
       clear: none;
-      margin-inline-start: gutter(1 of 12);
+      margin-inline-start: 0; /* gutter removed, using gap instead */
     }
   }
 
@@ -252,7 +251,7 @@
   @media (min-width: $small) {
     float: inline-start;
     margin-bottom: 0;
-    width: span(4 of 12);
+    width: 33.33%; /* span(4 of 12) */
 
     &:nth-child(3n + 1) {
       clear: both;
@@ -261,12 +260,12 @@
 
     &:nth-child(3n + 2) {
       clear: none;
-      margin-inline-start: gutter(of 12);
+      margin-inline-start: 0; /* gutter removed, using gap instead */
     }
 
     &:nth-child(3n + 3) {
       clear: none;
-      margin-inline-start: gutter(of 12);
+      margin-inline-start: 0; /* gutter removed, using gap instead */
     }
 
     .feature__item-teaser {
@@ -276,7 +275,7 @@
   }
 
   .archive__item-body {
-    padding-inline: gutter(1 of 12);
+    padding-inline: 0; /* gutter removed, using gap instead */
   }
 
   a.btn::before {
@@ -313,14 +312,14 @@
     @media (min-width: $small) {
       .archive__item-teaser {
         float: inline-start;
-        width: span(5 of 12);
+        width: 41.67%; /* span(5 of 12) */
       }
 
       .archive__item-body {
         float: inline-end;
-        width: span(7 of 12);
-        padding-inline-start: gutter(0.5 of 12);
-        padding-inline-end: gutter(1 of 12);
+        width: 58.33%; /* span(7 of 12) */
+        padding-inline-start: 0; /* gutter(0.5 of 12) removed */
+        padding-inline-end: 0; /* gutter(1 of 12) removed */
       }
     }
   }
@@ -337,14 +336,14 @@
 
       .archive__item-teaser {
         float: inline-end;
-        width: span(5 of 12);
+        width: 41.67%; /* span(5 of 12) */
       }
 
       .archive__item-body {
         float: inline-start;
-        width: span(7 of 12);
-        padding-inline-start: gutter(1 of 12);
-        padding-inline-end: gutter(0.5 of 12);
+        width: 58.33%; /* span(7 of 12) */
+        padding-inline-start: 0; /* gutter(1 of 12) removed */
+        padding-inline-end: 0; /* gutter(0.5 of 12) removed */
       }
     }
   }
@@ -377,12 +376,12 @@
 
       .archive__item-teaser {
         margin: 0 auto;
-        width: span(5 of 12);
+        width: 41.67%; /* span(5 of 12) */
       }
 
       .archive__item-body {
         margin: 0 auto;
-        width: span(7 of 12);
+        width: 58.33%; /* span(7 of 12) */
       }
     }
   }
